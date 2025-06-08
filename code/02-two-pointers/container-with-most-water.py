@@ -14,7 +14,6 @@ Example 2:
 Input: height = [1,1]
 Output: 1
 """
-import os, sys
 from typing import List
 
 class Solution:
@@ -65,6 +64,7 @@ if __name__ == "__main__":
         { "input": [1,1], "output": 1}
     ]
 
+    import os, sys
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     from utils.test_runner import TestCaseRunner
     
