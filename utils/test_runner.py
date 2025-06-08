@@ -2,7 +2,7 @@ from typing import Any, Callable, Dict
 
 class TestCaseRunner:
     def __init__(self):
-        print("Test validator initialized")
+        pass
 
     def run(self, tests: list[Dict[str, Any]], func: Callable) -> None:
         for test in tests:
@@ -16,4 +16,3 @@ class TestCaseRunner:
                     print(f"\033[91m❌ Test case failed: {test_input} -> {result} != {expected_output}\033[0m")
             except Exception as e:
                 print(f"\033[91m❌ Test case failed: {test_input} -> {e}\033[0m")
-            
