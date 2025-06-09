@@ -60,8 +60,8 @@ class Solution:
 
 if __name__ == "__main__":
     tests = [
-        { "input": [1,8,6,2,5,4,8,3,7], "output": 49},
-        { "input": [1,1], "output": 1}
+        { "input": ([1,8,6,2,5,4,8,3,7],), "output": 49},
+        { "input": ([1,1],), "output": 1}
     ]
 
     import os, sys

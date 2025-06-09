@@ -9,7 +9,7 @@ class TestCaseRunner:
             try:
                 test_input = test["input"]
                 expected_output = test["output"]
-                result = func(test_input)
+                result = func(*test_input)
                 if result == expected_output:
                     print(f"\033[92m✅ Test case passed: {test_input} -> {result} == {expected_output}\033[0m")
                 else:
