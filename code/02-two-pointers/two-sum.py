@@ -18,16 +18,16 @@ class Solution:
         - iterate over all possible pairs of lines
         - check sum of pair equls to target
         - return True if equal else check next Pair
-        
+
         time complexity: O(n^2)
         space complexity: O(1)
         """
         for i in range(len(nums)):
-            for j in range(i + 1 , len(nums)):
+            for j in range(i + 1, len(nums)):
                 if nums[i] + nums[j] == target:
                     return True
         return False
-    
+
     def isPairSum(self, nums, target):
         """
         Two pointers approach
@@ -52,15 +52,16 @@ class Solution:
         return False
 
 
-
 if __name__ == "__main__":
     tests = [
-        { "input": ([1,3,4,6,8,10,13], 13), "output": True},
-        { "input": ([1,3,4,6,8,10,13], 6), "output": False},
+        {"input": ([1, 3, 4, 6, 8, 10, 13], 13), "output": True},
+        {"input": ([1, 3, 4, 6, 8, 10, 13], 6), "output": False},
     ]
 
-    import os, sys
+    import os
+    import sys
+
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     from utils.test_runner import TestCaseRunner
-    
+
     TestCaseRunner().run(tests, Solution().isPairSum)
