@@ -13,7 +13,7 @@ lint:
 
 # Format code using black
 format:
-    black . --exclude=venv/* --line-length=120 --check
+    black . --exclude=venv/* --line-length=120
 
 push:
     git pull

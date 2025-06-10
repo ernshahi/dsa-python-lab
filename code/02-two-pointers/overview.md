@@ -7,6 +7,7 @@ Two pointer is a algorithm which uses two pointers that starts at the opposite e
 - The two pointers are usually initialized to the start and end of the array or list.
 - The two pointers are then moved towards each other until they meet.
 - The two pointers are usually used to find a pair of elements in an array or list that satisfy a certain condition.
+- List must be sorted for two pointers to work.
 
 ## Problems
 - Two sum
