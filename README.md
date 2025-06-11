@@ -11,6 +11,7 @@ Each topic has a folder with the name of the topic.
 - [1. Two Sum](02-two-pointers/two-sum.py)
 - [2. Container With Most Water](02-two-pointers/container-with-most-water.py)
 - [3. 3Sum](02-two-pointers/three-sum.py)
+- [4. Valid Triangle Numbers](02-two-pointers/valid-triangle-numbers.py)
 
 3. Interval
 
