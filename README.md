@@ -13,6 +13,7 @@ Each topic has a folder with the name of the topic.
 - [3. 3Sum](02-two-pointers/three-sum.py)
 - [4. Valid Triangle Numbers](02-two-pointers/valid-triangle-numbers.py)
 - [5. Move Zeros](02-two-pointers/move-zeros.py)
+- [6. Sort Colors](02-two-pointers/sort-colors.py)
 
 3. Interval
 
