@@ -14,6 +14,7 @@ Each topic has a folder with the name of the topic.
 - [4. Valid Triangle Numbers](02-two-pointers/valid-triangle-numbers.py)
 - [5. Move Zeros](02-two-pointers/move-zeros.py)
 - [6. Sort Colors](02-two-pointers/sort-colors.py)
+- [7. Trapping Rain Water](02-two-pointers/evo.py)
 
 3. Interval
 
