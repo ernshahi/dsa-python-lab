@@ -64,17 +64,15 @@ class Solution:
     
     def totalFruit(self, fruits: List[int]) -> int:
         state  = defaultdict(int)
-        left, result, total = 0, 0, 0
+        left, result = 0, 0
         for right in range(len(fruits)):
             state[fruits[right]] += 1
-            total += 1
             while len(state) > 2:
                 state[fruits[left]] -= 1
-                total -= 1
                 if state[fruits[left]] == 0:
                     del state[fruits[left]]
                 left += 1
-            result = max(result, total)
+            result = max(result, right - left + 1)
         return result
 
 
