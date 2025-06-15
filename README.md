@@ -6,6 +6,8 @@ A lab for practicing Data Structures and Algorithms (DSA) using Python.
 Each topic has a folder with the name of the topic.
 
 1. Sliding Window
+- [1. Fruit Into Baskets](01-sliding-window/fruit-into-basket.py)
+- [2. Longest Substring Without Repeating Characters](01-sliding-window/longest-substring-without-repeating-chars.py)
 
 2. Two Pointers
 - [1. Two Sum](02-two-pointers/two-sum.py)
@@ -14,7 +16,7 @@ Each topic has a folder with the name of the topic.
 - [4. Valid Triangle Numbers](02-two-pointers/valid-triangle-numbers.py)
 - [5. Move Zeros](02-two-pointers/move-zeros.py)
 - [6. Sort Colors](02-two-pointers/sort-colors.py)
-- [7. Trapping Rain Water](02-two-pointers/evo.py)
+- [7. Trapping Rain Water](02-two-pointers/trapping-rain-water.py)
 
 3. Interval
 
