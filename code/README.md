@@ -9,6 +9,9 @@ Each topic has a folder with the name of the topic.
 - [1. Fruit Into Baskets](01-sliding-window/fruit-into-basket.py)
 - [2. Longest Substring Without Repeating Characters](01-sliding-window/longest-substring-without-repeating-chars.py)
 - [3. Longest Repeating Character Replacement](01-sliding-window/longest-repeating-character-replacement.py)
+- [4. Maximum Points You Can Obtain from Cards](01-sliding-window/max_points-from-cards.py)
+- [5. Max Sum of Subarray of Size K](01-sliding-window/max-sum-of-subarray.py)
+
 
 2. Two Pointers
 - [1. Two Sum](02-two-pointers/two-sum.py)
