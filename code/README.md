@@ -11,6 +11,7 @@ Each topic has a folder with the name of the topic.
 - [3. Longest Repeating Character Replacement](01-sliding-window/longest-repeating-character-replacement.py)
 - [4. Maximum Points You Can Obtain from Cards](01-sliding-window/max_points-from-cards.py)
 - [5. Max Sum of Subarray of Size K](01-sliding-window/max-sum-of-subarray.py)
+- [6. Max Sum of Distinct Subarrays With Length K](01-sliding-window/max-sum-distinct-subarray-with-length-k.py)
 
 
 2. Two Pointers
