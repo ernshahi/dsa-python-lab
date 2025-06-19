@@ -24,6 +24,7 @@ Each topic has a folder with the name of the topic.
 - [7. Trapping Rain Water](02-two-pointers/trapping-rain-water.py)
 
 3. Interval
+- [1. Can Attend Meetings](03-interval/can-attend-meetings.py)
 
 4. Stack
 
