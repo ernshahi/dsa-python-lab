@@ -25,6 +25,7 @@ Each topic has a folder with the name of the topic.
 
 3. Interval
 - [1. Can Attend Meetings](03-interval/can-attend-meetings.py)
+- [2. Insert Interval](03-interval/insert-interval.py)
 
 4. Stack
 
@@ -57,5 +58,6 @@ Each topic has a folder with the name of the topic.
 - This repo is a personal learning space and might contain incomplete or work-in-progress solutions.
 
 ---
+2,010,527
 
- 🚀 Happy coding! 🚀
+ 🚀 Happy coding! 🚀 
