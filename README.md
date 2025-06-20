@@ -26,6 +26,7 @@ Each topic has a folder with the name of the topic.
 3. Interval
 - [1. Can Attend Meetings](03-interval/can-attend-meetings.py)
 - [2. Insert Interval](03-interval/insert-interval.py)
+- [3. Non-overlapping Intervals](03-interval/non-overlapping-intervals.py)
 
 4. Stack
 
@@ -52,6 +53,14 @@ Each topic has a folder with the name of the topic.
 15. Prefix Sum
 
 16. Matrices
+
+
+Random Questions
+- [1. Letter Combinations of a Phone Number](random/letter-combination-phone-number.py)
+
+Weekly Questions
+- [1. Two Sum](weekly/1/1-two-sum.py)
+- [2. Valid Parentheses](weekly/1/2-valid-parenthesis.py)
 
 
 ## 📝 Notes
