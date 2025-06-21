@@ -27,6 +27,7 @@ Each topic has a folder with the name of the topic.
 - [1. Can Attend Meetings](03-interval/can-attend-meetings.py)
 - [2. Insert Interval](03-interval/insert-interval.py)
 - [3. Non-overlapping Intervals](03-interval/non-overlapping-intervals.py)
+- [4. Merge Intervals](03-interval/merge-intervals.py)
 
 4. Stack
 
