@@ -32,6 +32,7 @@ Each topic has a folder with the name of the topic.
 
 
 4. Stack
+- [1. Valid Parentheses](04-stack/valid-parentheses.py)
 
 5. Linked List
 
@@ -70,6 +71,7 @@ Weekly Questions
 - This repo is a personal learning space and might contain incomplete or work-in-progress solutions.
 
 ---
-2,010,527
+June 19 -> 2,010,527
+June 22 -> 1,930,860 -> 79,667 || 3.96% UpArrow ↑
 
  🚀 Happy coding! 🚀 
