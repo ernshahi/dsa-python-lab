@@ -35,7 +35,7 @@ Each topic has a folder with the name of the topic.
 - [1. Valid Parentheses](04-stack/valid-parentheses.py)
 - [2. Decode String](04-stack/decode-string.py)
 - [3. Longest Valid Parentheses](04-stack/longest-valid-parentheses.py)
-
+- [4. Daily Temperatures](04-stack/daily-temperatures.py)
 
 
 5. Linked List
