@@ -20,6 +20,16 @@ Output: 0
 
 class Solution:
     def longestValidParentheses1(self, s: str) -> int:
+        """
+        Time: O(n)
+        Space: O(1)
+        Idea:
+        - Use two pointers to track the longest valid parentheses substring
+        - left and right are the number of left and right parentheses respectively
+        - if left == right, then the substring is valid, update mx
+        - if right > left, then the substring is invalid, reset left and right
+        - do the same for the reversed string, as first loop doesn't work for cases like "((()"
+        """
         left = right = mx = 0
         for c in s:
             if c == "(":
@@ -45,6 +55,16 @@ class Solution:
         return mx
     
     def longestValidParentheses(self, s: str) -> int:
+        """
+        Time: O(n)
+        Space: O(n)
+        Idea:
+        - Use a stack to track the indices of the left parentheses
+        - if the current character is a right parenthesis, pop the stack
+        - if the stack is empty, push the current index
+        - if the stack is not empty, update the maximum length
+        - stack is [-1] to handle the case when the first character is a right parenthesis
+        """
         stack = [-1]
         mx = 0
         for i, char in enumerate(s):
