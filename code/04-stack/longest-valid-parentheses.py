@@ -19,23 +19,50 @@ Output: 0
 """
 
 class Solution:
+    def longestValidParentheses1(self, s: str) -> int:
+        left = right = mx = 0
+        for c in s:
+            if c == "(":
+                left += 1
+            else:
+                right += 1
+            if left == right:
+                mx = max(mx, left+right)
+            elif right > left:
+                left = right = 0
+            
+        left, right = 0, 0
+        # for i in range(len(s) - 1, -1, -1):
+        for c in reversed(s):
+            if c == ")":
+                right += 1
+            else:
+                left += 1
+            if left == right:
+                mx = max(mx, left + right)
+            elif left > right:
+                left = right = 0
+        return mx
+    
     def longestValidParentheses(self, s: str) -> int:
         stack = [-1]
-        max_length = 0
-        for i, c in enumerate(s):
-            if c == '(':
+        mx = 0
+        for i, char in enumerate(s):
+            if char == "(":
                 stack.append(i)
                 continue
             stack.pop()
-            if not stack:
-                stack.append(i)
+            if stack:
+                mx = max(mx, i - stack[-1])
             else:
-                max_length = max(max_length, i - stack[-1])
-        return max_length
+                stack.append(i)
+        return mx
+
 
 if __name__ == "__main__":
     # Example usage
     solution = Solution()
+    print(solution.longestValidParentheses(")()())")) # output: 4
     print(solution.longestValidParentheses("(()"))  # Output: 2
     print(solution.longestValidParentheses(")()())"))  # Output: 4
     print(solution.longestValidParentheses(""))  # Output: 0
