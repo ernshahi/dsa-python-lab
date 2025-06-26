@@ -39,6 +39,7 @@ Each topic has a folder with the name of the topic.
 
 
 5. Linked List
+- [1. Linked List Cycle](05-linked-list/linked-list-cycle.py)
 
 6. Binary Search
 
@@ -76,6 +77,7 @@ Weekly Questions
 
 ---
 June 19 -> 2,010,527
-June 22 -> 1,930,860 -> 79,667 || 3.96% UpArrow ↑
+June 22 -> 1,930,860 -> 79,667 || 3.96% ↑
+June 26 -> 1,869,514 -> 60,855 || 3.25% ↑
 
  🚀 Happy coding! 🚀 
