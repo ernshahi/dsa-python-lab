@@ -40,6 +40,7 @@ Each topic has a folder with the name of the topic.
 
 5. Linked List
 - [1. Linked List Cycle](05-linked-list/linked-list-cycle.py)
+- [2. Palindrome Linked List](05-linked-list/palindrome-linked-list.py)
 
 6. Binary Search
 
