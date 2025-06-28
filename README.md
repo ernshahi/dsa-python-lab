@@ -67,6 +67,7 @@ Each topic has a folder with the name of the topic.
 
 Random Questions
 - [1. Letter Combinations of a Phone Number](random/letter-combination-phone-number.py)
+- [2. Find Subsequence of Length K With the Largest Sum](random/find-subsequence-length-k-with-largest-sum.py)
 
 Weekly Questions
 - [1. Two Sum](weekly/1/1-two-sum.py)
