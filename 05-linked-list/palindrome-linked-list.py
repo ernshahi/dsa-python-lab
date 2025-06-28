@@ -12,11 +12,14 @@ Input: head = [1,2]
 Output: false
 """
 
+from typing import Optional
+
 # Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
         # li_list = []
@@ -56,6 +59,18 @@ class Solution:
             fast = fast.next.next
         
         # reverse second half
+        """
+        # 1, 2, 3, 2, 1 # 3 -> 2 -> 1 -> None == 1 -> 2 -> 3 -> None
+        # slow = mid = 3
+        # temp = 2, slow.next = None, prev = 3, slow 2
+        # temp = 1, slow.next = 3, prev = 2, slow = 1
+        # temp = None slow.next = 1, prev = 1, slow = None
+
+        # 1, 2, 2, 1 # 2 -> 1 -> None == 1 -> 2 -> None
+        # slow = mid = 2
+        # temp = 1, slow.next = None, prev = 2, slow 1
+        # temp = None, slow.next = 1, prev = 1, slow = None
+        """
         prev = None
         while slow:
             temp = slow.next
