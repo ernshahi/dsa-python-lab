@@ -70,6 +70,7 @@ Random Questions
 - [1. Letter Combinations of a Phone Number](random/letter-combination-phone-number.py)
 - [2. Find Subsequence of Length K With the Largest Sum](random/find-subsequence-length-k-with-largest-sum.py)
 - [3. Add Two Number](random/add-two-numbers.py)
+- [4. Number of Subsequences That Satisfy the Given Sum Condition](random/number-subsequence-that-satisfies-the%20given-sum.py)
 
 Weekly Questions
 - [1. Two Sum](weekly/1/1-two-sum.py)
