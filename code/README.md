@@ -42,6 +42,7 @@ Each topic has a folder with the name of the topic.
 - [1. Linked List Cycle](05-linked-list/linked-list-cycle.py)
 - [2. Palindrome Linked List](05-linked-list/palindrome-linked-list.py)
 - [3. Remove Nth Node From End of List](05-linked-list/remove-nth-node-from-end-of-list.py)
+- [4. Reorder List](05-linked-list/reorder-list.py)
 
 6. Binary Search
 
