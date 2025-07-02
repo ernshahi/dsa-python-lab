@@ -76,6 +76,12 @@ Weekly Questions
 - [1. Two Sum](weekly/1/1-two-sum.py)
 - [2. Valid Parentheses](weekly/1/2-valid-parenthesis.py)
 
+Daily Qustions
+- [1. Find the Original String I](daily/find-the-original-string.py)
+
+
+
+
 
 ## 📝 Notes
 - This repo is a personal learning space and might contain incomplete or work-in-progress solutions.
@@ -84,5 +90,6 @@ Weekly Questions
 June 19 -> 2,010,527
 June 22 -> 1,930,860 -> 79,667 || 3.96% ↑
 June 26 -> 1,869,514 -> 60,855 || 3.25% ↑
+June 30 -> 1,770,246 -> 99,268 || 5.3 ↑
 
  🚀 Happy coding! 🚀 
