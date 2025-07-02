@@ -72,6 +72,7 @@ Random Questions
 - [3. Add Two Number](random/add-two-numbers.py)
 - [4. Number of Subsequences That Satisfy the Given Sum Condition](random/number-subsequence-that-satisfies-the%20given-sum.py)
 - [5. Valid Anagram](random/valid-anagram.py)
+- [6. Longest Harmonious Subsequence](random/longest-hormonious-subsequence.py)
 
 Weekly Questions
 - [1. Two Sum](weekly/1/1-two-sum.py)
