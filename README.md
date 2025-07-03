@@ -43,6 +43,7 @@ Each topic has a folder with the name of the topic.
 - [2. Palindrome Linked List](05-linked-list/palindrome-linked-list.py)
 - [3. Remove Nth Node From End of List](05-linked-list/remove-nth-node-from-end-of-list.py)
 - [4. Reorder List](05-linked-list/reorder-list.py)
+- [5. Swap Nodes in Pairs](05-linked-list/swap-nodes-in-pairs.py)
 
 6. Binary Search
 
@@ -94,5 +95,6 @@ June 19 -> 2,010,527
 June 22 -> 1,930,860 -> 79,667 || 3.96% ↑
 June 26 -> 1,869,514 -> 60,855 || 3.25% ↑
 June 30 -> 1,770,246 -> 99,268 || 5.3 ↑
+July 01 -> 1,716,047 -> 54,199 || 3.06 ↑
 
  🚀 Happy coding! 🚀 
