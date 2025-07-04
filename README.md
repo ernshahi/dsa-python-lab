@@ -46,6 +46,7 @@ Each topic has a folder with the name of the topic.
 - [5. Swap Nodes in Pairs](05-linked-list/swap-nodes-in-pairs.py)
 
 6. Binary Search
+- [1. Koko Eating Bananas](06-binary-search/koko-eating-banana.py)
 
 7. Heap
 
