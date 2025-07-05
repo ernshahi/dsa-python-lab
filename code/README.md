@@ -47,6 +47,7 @@ Each topic has a folder with the name of the topic.
 
 6. Binary Search
 - [1. Koko Eating Bananas](06-binary-search/koko-eating-banana.py)
+- [2. Search in Rotated Sorted Array](06-binary-search/search-in-rotated-sorted-array.py)
 
 7. Heap
 
