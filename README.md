@@ -48,6 +48,7 @@ Each topic has a folder with the name of the topic.
 6. Binary Search
 - [1. Koko Eating Bananas](06-binary-search/koko-eating-banana.py)
 - [2. Search in Rotated Sorted Array](06-binary-search/search-in-rotated-sorted-array.py)
+- [3. Count Complete Tree Nodes](06-binary-search/count-complete-tree-nodes.py)
 
 7. Heap
 
@@ -98,5 +99,6 @@ June 22 -> 1,930,860 -> 79,667 || 3.96% ↑
 June 26 -> 1,869,514 -> 60,855 || 3.25% ↑
 June 30 -> 1,770,246 -> 99,268 || 5.3 ↑
 July 01 -> 1,716,047 -> 54,199 || 3.06 ↑
+June 05 -> 1,666,437 -> 49,610 || 2.9 ↑
 
  🚀 Happy coding! 🚀 
