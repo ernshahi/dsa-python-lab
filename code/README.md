@@ -51,6 +51,7 @@ Each topic has a folder with the name of the topic.
 - [3. Count Complete Tree Nodes](06-binary-search/count-complete-tree-nodes.py)
 
 7. Heap
+- [1. Kth Largest Element in an Array](07-heap/k-th-largest-element-in-an-array.py)
 
 8. Depth First Search
 
