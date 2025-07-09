@@ -44,6 +44,7 @@ Each topic has a folder with the name of the topic.
 - [3. Remove Nth Node From End of List](05-linked-list/remove-nth-node-from-end-of-list.py)
 - [4. Reorder List](05-linked-list/reorder-list.py)
 - [5. Swap Nodes in Pairs](05-linked-list/swap-nodes-in-pairs.py)
+- [6. Merge Two Sorted Lists](05-linked-list/merge-two-sorted-list.py)
 
 6. Binary Search
 - [1. Koko Eating Bananas](06-binary-search/koko-eating-banana.py)
