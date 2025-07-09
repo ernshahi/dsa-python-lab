@@ -56,6 +56,7 @@ Each topic has a folder with the name of the topic.
 
 
 8. Depth First Search
+- [1. Path Sum](08-depth-first-search/path-sum.py)
 
 9. Breadth First Search
 
