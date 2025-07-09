@@ -54,6 +54,7 @@ Each topic has a folder with the name of the topic.
 7. Heap
 - [1. Kth Largest Element in an Array](07-heap/k-th-largest-element-in-an-array.py)
 - [2. K Closest Points to Origin](07-heap/k-closest-points-to-origin.py)
+- [3. Merge k Sorted Lists](07-heap/merge-k-sorted-lists.py)
 
 
 8. Depth First Search
