@@ -59,6 +59,7 @@ Each topic has a folder with the name of the topic.
 
 8. Depth First Search
 - [1. Path Sum](08-depth-first-search/path-sum.py)
+- [2. Count Good Nodes in Binary Tree](08-depth-first-search/count-good-nodes-in-binary-tree.py)
 
 9. Breadth First Search
 
