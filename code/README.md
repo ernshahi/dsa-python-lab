@@ -61,6 +61,7 @@ Each topic has a folder with the name of the topic.
 - [1. Path Sum](08-depth-first-search/path-sum.py)
 - [2. Count Good Nodes in Binary Tree](08-depth-first-search/count-good-nodes-in-binary-tree.py)
 - [3. Maximum Depth of Binary Tree](08-depth-first-search/maximum-depth-of-binary-tree.py)
+- [4. Binary Tree Tilt](08-depth-first-search/binary-tree-tilt.py)
 9. Breadth First Search
 
 10. Backtracking
@@ -106,6 +107,7 @@ June 22 -> 1,930,860 -> 79,667 || 3.96% ↑
 June 26 -> 1,869,514 -> 60,855 || 3.25% ↑
 June 30 -> 1,770,246 -> 99,268 || 5.3 ↑
 July 01 -> 1,716,047 -> 54,199 || 3.06 ↑
-June 05 -> 1,666,437 -> 49,610 || 2.9 ↑
+July 05 -> 1,666,437 -> 49,610 || 2.9 ↑
+July 11 -> 1,529,718 -> 136,719 || 8.21% ↑
 
  🚀 Happy coding! 🚀 
