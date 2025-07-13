@@ -62,6 +62,8 @@ Each topic has a folder with the name of the topic.
 - [2. Count Good Nodes in Binary Tree](08-depth-first-search/count-good-nodes-in-binary-tree.py)
 - [3. Maximum Depth of Binary Tree](08-depth-first-search/maximum-depth-of-binary-tree.py)
 - [4. Binary Tree Tilt](08-depth-first-search/binary-tree-tilt.py)
+- [5. Diameter of Binary Tree](08-depth-first-search/diameter-of-binary-tree.py)
+
 9. Breadth First Search
 
 10. Backtracking
