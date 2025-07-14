@@ -63,6 +63,8 @@ Each topic has a folder with the name of the topic.
 - [3. Maximum Depth of Binary Tree](08-depth-first-search/maximum-depth-of-binary-tree.py)
 - [4. Binary Tree Tilt](08-depth-first-search/binary-tree-tilt.py)
 - [5. Diameter of Binary Tree](08-depth-first-search/diameter-of-binary-tree.py)
+- [6. Path Sum II](08-depth-first-search/path-sum-ii.py)
+
 
 9. Breadth First Search
 
