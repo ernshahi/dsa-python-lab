@@ -64,7 +64,7 @@ Each topic has a folder with the name of the topic.
 - [4. Binary Tree Tilt](08-depth-first-search/binary-tree-tilt.py)
 - [5. Diameter of Binary Tree](08-depth-first-search/diameter-of-binary-tree.py)
 - [6. Path Sum II](08-depth-first-search/path-sum-ii.py)
-
+- [7. Longest Univalue Path](08-depth-first-search/longest-univalue-path.py)
 
 9. Breadth First Search
 
@@ -113,5 +113,6 @@ June 30 -> 1,770,246 -> 99,268 || 5.3 ↑
 July 01 -> 1,716,047 -> 54,199 || 3.06 ↑
 July 05 -> 1,666,437 -> 49,610 || 2.9 ↑
 July 11 -> 1,529,718 -> 136,719 || 8.21% ↑
+July 14 -> 1,490,513 -> 49,195 || 3.21% ↑
 
  🚀 Happy coding! 🚀 
