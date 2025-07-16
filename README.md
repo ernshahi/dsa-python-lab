@@ -65,6 +65,7 @@ Each topic has a folder with the name of the topic.
 - [5. Diameter of Binary Tree](08-depth-first-search/diameter-of-binary-tree.py)
 - [6. Path Sum II](08-depth-first-search/path-sum-ii.py)
 - [7. Longest Univalue Path](08-depth-first-search/longest-univalue-path.py)
+- [8. Clone graph](08-depth-first-search/clone-graph.py)
 
 9. Breadth First Search
 
