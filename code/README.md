@@ -67,6 +67,8 @@ Each topic has a folder with the name of the topic.
 - [7. Longest Univalue Path](08-depth-first-search/longest-univalue-path.py)
 - [8. Clone graph](08-depth-first-search/clone-graph.py)
 - [9. Flood Fill](08-depth-first-search/flood-fill.py)
+- [10. Number of Islands](08-depth-first-search/number-of-islands.py)
+  
 9. Breadth First Search
 
 10. Backtracking
