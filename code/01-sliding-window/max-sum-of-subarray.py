@@ -26,9 +26,9 @@ class Solution:
                 left += 1
         return result
     
-
 if __name__ == "__main__":
     sol = Solution()
     print(sol.max_subarray_sum([2, 1, 5, 1, 3, 2], 3))
+    print(sol.max_subarray_sum([2, 1, 5, 1, 3, 2], 222))
 
 

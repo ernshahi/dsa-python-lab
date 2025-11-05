@@ -22,7 +22,27 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 """
 
 class Solution:
+    def longestSubstringWithoutRepeat(self, s: str):
+        """
+        Time complexity: O(n^2)
+        Space complexity: O(n)
+        """
+        max_count = 0
+        for i in range(len(s)):
+            curr, count = set(), 0
+            for j in range(i, len(s)):
+                if s[j] in curr:
+                    break
+                curr.add(s[j])
+                count += 1
+            max_count = max(max_count, count)
+        return max_count
+        
     def lengthOfLongestSubstring1(self, s: str) -> int:
+        """
+        Time complexity: O(n^3)
+        Space complexity: O(n)
+        """
         maxLength = 0
         for left in range(len(s)):
             for right in range(left, len(s)):
@@ -45,7 +65,8 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
-    print(sol.lengthOfLongestSubstring("abcabcbb")) # 3
-    print(sol.lengthOfLongestSubstring("bbbbb")) # 1
-    print(sol.lengthOfLongestSubstring("pwwkew")) # 3
+    # print(sol.longestSubstringWithoutRepeat("abcabcbb")) # 3
+    # print(sol.longestSubstringWithoutRepeat("bbbbb")) # 1
+    print(sol.longestSubstringWithoutRepeat("pwwkew")) # 3
+    print(sol.longestSubstringWithoutRepeat("substring")) # 8
     
