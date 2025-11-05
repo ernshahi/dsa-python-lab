@@ -20,6 +20,7 @@ Output: 3
 Explanation: The answer is "wke", with the length of 3.
 Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
 """
+from collections import defaultdict
 
 class Solution:
     def longestSubstringWithoutRepeat(self, s: str):
@@ -52,15 +53,35 @@ class Solution:
         return maxLength
     
     def lengthOfLongestSubstring(self, s: str) -> int:
+        """
+        Time complexity: O(n)
+        Space complexity: O(n)
+        """
         l, result = 0, 0
-        state = []
+        state = set()
         for r in range(len(s)):
             while s[r] in state:
                 state.remove(s[l])
                 l += 1
-            state.append(s[r])
+            state.add(s[r])
             result = max(result, r - l + 1)
         return result
+    
+    def longestSubstringWithoutRepeat(self, s: str):
+        """
+        Time complexity: O(n)
+        Space complexity: O(n)
+        """
+        counts = defaultdict(int)
+        left, max_count = 0, 0
+        for right in range(len(s)):
+            counts[s[right]] += 1
+
+            while counts[s[right]] > 1:
+                counts[s[left]] -= 1
+                left += 1
+            max_count = max(max_count, right - left + 1)
+        return max_count
     
 
 if __name__ == "__main__":
