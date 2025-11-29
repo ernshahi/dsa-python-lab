@@ -23,6 +23,10 @@ from collections import defaultdict
 
 class Solution:
     def characterReplacement1(self, s: str, k: int) -> int:
+        """
+        Time complexity: O(n^2)
+        Space complexity: O(n)
+        """
         state = defaultdict(int)
         left, result = 0, 0
         for right in range(len(s)):
@@ -35,13 +39,17 @@ class Solution:
         return result
     
     def characterReplacement(self, s: str, k: int) -> int:
+        """
+        Time complexity: O(n)
+        Space complexity: O(n)
+        """
         state = defaultdict(int)
         left, result = 0, 0
         max_f = 0
         for right in range(len(s)):
             state[s[right]] += 1
             max_f = max(max_f, state[s[right]])
-            if (right - left + 1) - max_f > k:
+            if (right - left + 1) > max_f + k:
                 state[s[left]] -= 1
                 left += 1
             result = max(result, right - left + 1)
