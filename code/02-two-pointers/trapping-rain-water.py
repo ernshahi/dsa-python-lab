@@ -40,6 +40,35 @@ class Solution:
                 totalWater += min(leftHeight, rightHeight) - height[i]
         return totalWater
     
+    def trap2(self, height: List[int]) -> int:
+        """
+        Two pointers approach
+        - left pointer starts at the beginning of the array
+        - right pointer starts at the end of the array
+        - leftMax is the maximum height of the left pointer
+        - rightMax is the maximum height of the right pointer
+        - result is the total amount of water trapped
+        - while left pointer is less than right pointer, calculate the amount of water trapped
+
+        time complexity: O(n)
+        space complexity: O(1)
+        """
+        if not height:
+            return 0
+        left, right = 0, len(height) - 1
+        leftMax, rightMax = height[left], height[right]
+        total = 0
+        while left < right:
+            if height[left] < height[right]:
+                leftMax = max(leftMax, height[left])
+                total += leftMax - height[left]
+                left += 1
+            else:
+                rightMax = max(rightMax, height[right])
+                total += rightMax - height[right]
+                right -= 1
+        return total
+    
 
     def trap(self, height: List[int]) -> int:
         """
@@ -69,5 +98,5 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
-    print(sol.trap([0,1,0,2,1,0,1,3,2,1,2,1])) # 6
-    print(sol.trap1([3, 4, 1, 2, 2, 5, 1, 0, 2])) # 10
+    print(sol.trap2([0,1,0,2,1,0,1,3,2,1,2,1])) # 6
+    print(sol.trap2([3, 4, 1, 2, 2, 5, 1, 0, 2])) # 10
