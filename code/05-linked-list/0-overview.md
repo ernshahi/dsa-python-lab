@@ -1,4 +1,5 @@
-
+# Linked List
+```python
 
 class ListNode:
     def __init__(self, val=0, next=None) -> None:
@@ -27,17 +28,9 @@ def delete_node(head, target):
         if current.val == target:
             prev.next = current.next
             break
-
         prev = current
         current = current.next
     return head
-
-def fast_slow(head):
-    fast = slow = head
-    while fast and fast.next:
-        slow = slow.next
-        fast = fast.next.next
-    return slow
 
 
 head = ListNode(1)
@@ -48,5 +41,4 @@ head.next.next.next = ListNode(4)
 print(head)
 print(find_length(head))
 # print(delete_node(head, 1))
-print(fast_slow(head))
-
+```

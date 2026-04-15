@@ -28,41 +28,25 @@ class ListNode:
 
 
 class Solution:
-    def removeNthFromEnd1(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         """
         Time Complexity: O(L), where L is the length of the linked list.
         Space Complexity: O(1), no extra space is used.
         This function removes the nth node from the end of the linked list.
         """
         length = 0
-        current = head
-        while current:
+        curr = head
+        while curr:
             length += 1
-            current = current.next
+            curr = curr.next
 
-        dummy = ListNode(0, head)
-        length -= n
-        current = dummy
-        while length > 0:
-            current = current.next
-            length -= 1
-        current.next = current.next.next
-        return dummy.next
-
-    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        lenght = 0
-        current = head
-        while current:
-            lenght += 1
-            current = current.next
-
-        if lenght == n:
+        target = length - n
+        if target == 0:
             return head.next
-
-        current = head
-        for i in range(lenght - n - 1):
-            current = current.next
-        current.next = current.next.next
+        curr = head
+        for _ in range(target-1):
+            curr = curr.next
+        curr.next = curr.next.next
         return head
     
 if __name__ == "__main__":

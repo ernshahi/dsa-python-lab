@@ -18,6 +18,7 @@ Input: list1 = [], list2 = [0]
 Output: [0]
 """
 
+from math import log2
 from typing import Optional
 # Definition for singly-linked list.
 class ListNode:
@@ -42,11 +43,30 @@ class Solution:
                 list2 = list2.next
             current = current.next
 
-        if list1 is None: current.next = list2
-        if list2 is None: current.next = list1
+        current.next = list2 or list1
         return dummy.next
-
-
+    
+    def mergeTwoLists2(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        if list1 is None: return list2
+        if list2 is None: return list1
+        if list1.val < list2.val:
+            head = list1
+            list1 = list1.next
+        else:
+            head = list2
+            list2 = list2.next
+        curr = head
+        while list1 and list2:
+            if list1.val <= list2.val:
+                curr.next = list1
+                list1 = list1.next
+            else:
+                curr.next = list2
+                list2 = list2.next
+            curr = curr.next
+        curr.next = list1 or list2
+        return head
+                
 
 if __name__ == "__main__":
     # Example usage:
@@ -55,9 +75,9 @@ if __name__ == "__main__":
     node2 = ListNode(1, ListNode(3, ListNode(4)))
     
     solution = Solution()
-    print(solution.mergeTwoLists(node1, node2))
+    print(solution.mergeTwoLists2(node1, node2))
 
 
     # Test with empty lists
-    print(solution.mergeTwoLists(None, None))  # Should return None
-    print(solution.mergeTwoLists(None, ListNode(0)))  # Should return ListNode(0)
+    print(solution.mergeTwoLists2(None, None))  # Should return None
+    print(solution.mergeTwoLists2(None, ListNode(0)))  # Should return ListNode(0)
