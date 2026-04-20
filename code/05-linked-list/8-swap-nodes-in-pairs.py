@@ -35,13 +35,11 @@ class ListNode:
         
 class Solution:
     def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:        
-        dummy = ListNode(0)
-        dummy.next = head
+        dummy = ListNode(0, next=head)
         prev = dummy
-
-        while head and head.next:
-            first = head
-            second = head.next
+        while prev.next and prev.next.next:
+            first = prev.next
+            second = prev.next.next
 
             # Swap the nodes
             prev.next = second
@@ -49,7 +47,6 @@ class Solution:
             second.next = first
 
             prev = first
-            head = first.next
         return dummy.next
     
 
@@ -58,5 +55,3 @@ if __name__ == "__main__":
     head = ListNode(1, ListNode(2, ListNode(3, ListNode(4))))
     solution = Solution()
     print(solution.swapPairs(head)) # Expected output: 2 -> 1 -> 4 -> 3 -> None
-
-    # 

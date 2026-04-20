@@ -25,7 +25,6 @@ from typing import List
 class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
         arr = [(-point[0]*point[0]-point[1]*point[1], point) for point in points]
-
         harr = arr[:k]
         heapq.heapify(harr)
         for pt in arr[k:]:
@@ -36,5 +35,5 @@ class Solution:
 
 
 if __name__ == "__main__":
-    print(Solution().kClosest([[1,3],[- 2,2]], 1))
+    print(Solution().kClosest([[1,3],[-2,2]], 1))
     print(Solution().kClosest([[3,3],[5,-1],[-2,4]], k=2))

@@ -24,46 +24,38 @@ class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+    
+    def __str__(self) -> str:
+        return f"{self.val} -> {self.next}"
 
 class Solution:
     def reorderList(self, head: Optional[ListNode]) -> None:
         """
         Do not return anything, modify head in-place instead.
         """
-        val_only = []
-        current = head
-        while current:
-            val_only.append(current.val)
-            current = current.next
-
-        is_even = len(val_only) % 2 == 0
-        val_only = list(reversed(val_only))
-        val_only = val_only[:len(val_only)//2]
-
-        if is_even: val_only = val_only[:-1]
-        current = head
-        for val in val_only:
-            temp = current.next
-            last_node = ListNode(val, temp)
-            current.next = last_node
-            last_node.next = temp
-            current = temp
+        slow, fast = head, head
+        while fast and fast.next:
+            slow, fast = slow.next, fast.next.next
         
-        if is_even: current = current.next
-        current.next = None
+        curr, prev = slow.next, None
+        slow.next = None 
+        while curr:
+            next_ = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next_
+        
+        left, right = head, prev
+        while right:
+            l_next, r_next = left.next, right.next
+            left.next = right
+            right.next = l_next
+            right, left = r_next, l_next
         return head
+        
 
 if __name__ == "__main__":
     # Example usage:
     head = ListNode(1, ListNode(2, ListNode(3, ListNode(4))))
     solution = Solution()
-    solution.reorderList(head)
-
-    # Print the reordered list
-    current = head
-    while current:
-        print(current.val, end=" -> ")
-        current = current.next
-    print("None")
-
-        
+    print(solution.reorderList(head))

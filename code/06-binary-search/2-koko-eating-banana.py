@@ -26,7 +26,9 @@ class Solution:
 
         while left <= right:
             mid = (left + right) // 2
-            total = sum(math.ceil(apple/mid) for apple in apples)
+            total = 0
+            for apple in apples:
+                total += math.ceil(apple/mid)
             if total <= h:
                 result = mid
                 right = mid - 1 # # try smaller k as user prefer slower as much as possible
