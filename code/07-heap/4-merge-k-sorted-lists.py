@@ -26,6 +26,7 @@ Output: []
 """
 
 from typing import Optional, List
+from heapq import heappush, heappop
 
 # Definition for singly-linked list.
 class ListNode:
@@ -39,24 +40,34 @@ class ListNode:
 
 class Solution:
     def mergeKLists1(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        result = None
-        for lst in lists:
-            dummy = ListNode()
-            current = dummy
-            while lst and result:
-                if lst.val <= result.val:
-                    current.next = lst
-                    lst = lst.next
-                else:
-                    current.next = result
-                    result = result.next
-                current = current.next
-            if result: current.next = result
-            if lst: current.next = lst
-            result = dummy.next
-        return result
-    
-    def mergeLists(self, l1, l2):
+        """
+        Using a min heap to store the smallest element of each list.
+        Time Complexity: O(N log k) + O(k log k) = O(N log k)
+        Space Complexity: O(k)
+        """
+        if not lists: return None
+        lists = [head for head in lists if head]
+        if not lists: return None
+        
+        heap = []
+        for head in lists:
+            heappush(heap, (head.val, id(head), head))
+        dummy = ListNode(0)
+        current = dummy
+        while heap:
+            val, _, node = heappop(heap)
+            current.next = node
+            current = current.next
+            if node.next:
+                heappush(heap, (node.next.val, id(node.next), node.next))
+        return dummy.next
+
+    def _mergeLists(self, l1, l2):
+        """
+        Helper function to merge two sorted lists.
+        Time Complexity: O(n + m)
+        Space Complexity: O(1)
+        """
         dummy = ListNode()
         current = dummy
         while l1 and l2:
@@ -72,14 +83,18 @@ class Solution:
         return dummy.next
 
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        """
+        Merge k sorted lists.
+        Time Complexity: O(N log k)
+        Space Complexity: O(1)
+        """
         if not lists or len(lists) < 1: return None
-        
         while len(lists) > 1:
             result = []
             for i in range(0, len(lists), 2):
                 l1 = lists[i]
                 l2 = lists[i+1] if i+1 < len(lists) else None
-                result.append(self.mergeLists(l1, l2))
+                result.append(self._mergeLists(l1, l2))
             lists = result
         return lists[0]
 

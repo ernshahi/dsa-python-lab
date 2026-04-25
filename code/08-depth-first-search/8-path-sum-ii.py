@@ -33,25 +33,34 @@ class TreeNode:
         self.left = left
         self.right = right
 
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
-        self.result = []
-        def dfs(node, target, nodes):
-            if not node: return
-            nodes = nodes + (node.val, )
-            if node.left is None and node.right is None:
-                if node.val == target:
-                    self.result.append(nodes)
-                return
-            target -= node.val
-            dfs(node.left, target, nodes)
-            dfs(node.right, target, nodes)
-        dfs(root, targetSum, ())
-        return self.result
+        """
+        DFS with backtracking.
+        Time: O(n)
+        Space: O(n)
+        """
+        result = []
+        def dfs(node, path, target):
+            if node is None: return
+            path.append(node.val)
+            if not node.left and not node.right:
+                if target == node.val:
+                    result.append(path[:])
+            dfs(node.left, path, target-node.val)
+            dfs(node.right, path, target-node.val)
+            path.pop()
+        dfs(root, [], targetSum)
+        return result
+    
+if __name__ == "__main__":
+    root = TreeNode(5)
+    root.left = TreeNode(4)
+    root.right = TreeNode(8)
+    root.left.left = TreeNode(11)
+    root.left.left.left = TreeNode(7)
+    root.left.left.right = TreeNode(2)
+    root.right.left = TreeNode(13)
+    root.right.right = TreeNode(4)
+    root.right.right.right = TreeNode(1)
+    print(Solution().pathSum(root, 22))

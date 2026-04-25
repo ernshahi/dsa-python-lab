@@ -42,13 +42,14 @@ Output: []
 Explanation: This an empty graph, it does not have any nodes.
 """
 
+from typing import Optional
+
 # Definition for a Node.
 class Node:
     def __init__(self, val = 0, neighbors = None):
         self.val = val
         self.neighbors = neighbors if neighbors is not None else []
 
-from typing import Optional
 class Solution:
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
         if not node: return node
@@ -57,10 +58,33 @@ class Solution:
         def clone(node):
             if node in old_to_new:
                 return old_to_new[node]
-            curr_node = Node(node.val)
-            old_to_new[node] = curr_node
+            new_node = Node(node.val)
+            old_to_new[node] = new_node
             for neighbor in node.neighbors:
-                curr_node.neighbors.append(clone(neighbor))
-            return curr_node
+                new_node.neighbors.append(clone(neighbor))
+            return new_node
         return clone(node)
+    
+    def cloneGraph2(self, node: Optional['Node']) -> Optional['Node']:
+        if not node: return node
+        new_graph = dict()
+        def dfs(item):
+            if item in new_graph:
+                return new_graph[item]
+            new_item = Node(item.val)
+            new_graph[item] = new_item
+            for neighbour in item.neighbors:
+                new_item.neighbors.append(dfs(neighbour))
+            return new_item
+        return dfs(node)
 
+if __name__ == "__main__":
+    node1 = Node(1)
+    node2 = Node(2)
+    node3 = Node(3)
+    node4 = Node(4)
+    node1.neighbors = [node2, node4]
+    node2.neighbors = [node1, node3]
+    node3.neighbors = [node2, node4]
+    node4.neighbors = [node1, node3]
+    print(Solution().cloneGraph(node1))
