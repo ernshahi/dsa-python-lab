@@ -36,11 +36,9 @@ class Solution:
             if r < 0 or c < 0 or r >= len(image) or c >= len(image[0]): 
                 return
             visited.add((r, c))
-            if image[r][c] != og: 
-                return
-            image[r][c] = color
-            for rd, cd in directions:
-                dfs(r+rd, c+cd)
-            return
+            if image[r][c] == og: 
+                image[r][c] = color
+                for rd, cd in directions:
+                    dfs(r+rd, c+cd)
         dfs(sr, sc)
         return image
