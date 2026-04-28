@@ -7,7 +7,13 @@ class TreeNode:
         self.right = right
 
 class Solution1:
-    
+    """
+    BFS traverse all items in the tree
+    Input:
+    [1, 2, 3, 4, 5, 6, 7]
+    Output:
+    [1, 2, 3, 4, 5, 6, 7]
+    """
     def __init__(self):
         pass
 
@@ -27,6 +33,23 @@ class Solution1:
             
 
 class Solution2:
+    """
+    BFS traverse all items in the tree by level
+    Input:
+    [
+        [1],
+        [2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ]
+    Output:
+    [
+        [1],
+        [2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ]
+    """
     def level_dfs(self, root):
         if not root:
             return []
@@ -49,11 +72,22 @@ class Solution2:
             
             
 class Solution:
+    """
+    BFS traverse all items in the tree by level and return the sum of the items in each level
+    Input:
+    [
+        [1],
+        [2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ]
+    Output:
+    [1, 5, 15, 21]
+    """
     def level_order_sum(self, root: TreeNode):
         if not root: return []
         result = []
         queue = deque([root])
-        
         while queue:
             level_sum = 0
             level_length = len(queue)

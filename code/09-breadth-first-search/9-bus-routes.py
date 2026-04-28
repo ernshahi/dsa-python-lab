@@ -1,0 +1,59 @@
+"""
+You are given an array routes representing bus routes where routes[i] is a bus route that the ith bus repeats forever.
+
+For example, if routes[0] = [1, 5, 7], this means that the 0th bus travels in the sequence 1 -> 5 -> 7 -> 1 -> 5 -> 7 -> 1 -> ... forever.
+You will start at the bus stop source (You are not on any bus initially), and you want to go to the bus stop target. You can travel between bus stops by buses only.
+
+Return the least number of buses you must take to travel from source to target. Return -1 if it is not possible.
+
+ 
+
+Example 1:
+
+Input: routes = [[1,2,7],[3,6,7]], source = 1, target = 6
+Output: 2
+Explanation: The best strategy is take the first bus to the bus stop 7, then take the second bus to the bus stop 6.
+Example 2:
+
+Input: routes = [[7,12],[4,5,15],[6],[15,19],[9,12,13]], source = 15, target = 12
+Output: -1
+
+
+Constraints:
+1 <= routes.length <= 500.
+1 <= routes[i].length <= 105
+All the values of routes[i] are unique.
+sum(routes[i].length) <= 105
+0 <= routes[i][j] < 106
+0 <= source, target < 106
+"""
+
+from collections import defaultdict, deque
+class Solution:
+    def numBusesToDestination(self, routes: List[List[int]], source: int, target: int) -> int:
+        mapping = defaultdict(set)
+        for i, route in enumerate(routes):
+            for stop in route:
+                mapping[stop].add(i)
+        
+        queue = deque()
+        queue.append(source)
+        visited_stop = set()
+        visited_route = set()
+        result = 0
+
+        while queue:
+            for _ in range(len(queue)):
+                stop = queue.popleft()
+                if stop == target:
+                    return result
+                for route_idx in mapping[stop]:
+                    if route_idx in visited_route:
+                        continue
+                    visited_route.add(route_idx)
+                    for stop in routes[route_idx]:
+                        if stop not in visited_stop:
+                            visited_stop.add(stop)
+                            queue.append(stop)
+            result += 1
+        return -1
