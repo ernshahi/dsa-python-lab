@@ -1,3 +1,6 @@
+# Trie
+
+```py
 from typing import List, Tuple
 
 class TrieNode:
@@ -44,11 +47,11 @@ class Trie:
         for parent, char in reversed(stack):
             child = parent.children[char]
             if child.is_end_of_word or child.children:
-                break
+                **break**
             del parent.children[char]
     
     def delete_recursion(self, word):
-        def _delete(current_node: TrieNode, word:str, index: int):
+        def _delete(current_node: TrieNode, index: int):
             if index == len(word):
                 if not current_node.is_end_of_word:
                     return False
@@ -57,15 +60,12 @@ class Trie:
             
             char = word[index]
             node = current_node.children.get(char)
-            if node is None: 
+            if node is None:
                 return False    
-            
-            should_delete_child = _delete(node, word, index+1)
-            if should_delete_child:
+            if _delete(node, index+1):
                 del current_node.children[char]
-                return len(current_node.children) == 0 and not current_node.is_end_of_word
-            return False
-        return _delete(self.root, word, 0)
+            return len(current_node.children) == 0 and not current_node.is_end_of_word
+        return _delete(self.root, 0)
             
     def has_prefix(self, word):
         current_node = self.root
@@ -75,3 +75,5 @@ class Trie:
             current_node = current_node.children[char]
         return True
         
+
+```

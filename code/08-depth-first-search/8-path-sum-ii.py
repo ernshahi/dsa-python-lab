@@ -35,22 +35,24 @@ class TreeNode:
 
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
-        """
-        DFS with backtracking.
-        Time: O(n)
-        Space: O(n)
-        """
+        if not root: return [] # can be removed
         result = []
-        def dfs(node, path, target):
-            if node is None: return
+        def dfs(node, path, total):
+            if not node:
+                return
             path.append(node.val)
+            total += node.val
+            # if total > targetSum:
+            #     path.pop()
+            #     return
             if not node.left and not node.right:
-                if target == node.val:
+                if total == targetSum:
                     result.append(path[:])
-            dfs(node.left, path, target-node.val)
-            dfs(node.right, path, target-node.val)
+            else: # can be removed as in case of null None it returns None
+                dfs(node.left, path, total)        
+                dfs(node.right, path, total)        
             path.pop()
-        dfs(root, [], targetSum)
+        dfs(root, [], 0)
         return result
     
 if __name__ == "__main__":

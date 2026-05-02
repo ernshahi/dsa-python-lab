@@ -60,13 +60,13 @@ class Solution:
         total = 0
         while left < right:
             if height[left] < height[right]:
+                left += 1
                 leftMax = max(leftMax, height[left])
                 total += leftMax - height[left]
-                left += 1
             else:
+                right -= 1
                 rightMax = max(rightMax, height[right])
                 total += rightMax - height[right]
-                right -= 1
         return total
     
 

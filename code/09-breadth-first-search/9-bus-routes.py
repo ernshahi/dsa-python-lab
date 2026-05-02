@@ -31,6 +31,14 @@ sum(routes[i].length) <= 105
 from collections import defaultdict, deque
 class Solution:
     def numBusesToDestination(self, routes: List[List[int]], source: int, target: int) -> int:
+        """
+        R = number of routes
+        S = total number of stops across all routes
+        
+        Time Complexity: O(S + R) 
+        Space Complexity: O(S + R)
+        Each route and stop is visited at most once.
+        """
         mapping = defaultdict(set)
         for i, route in enumerate(routes):
             for stop in route:
