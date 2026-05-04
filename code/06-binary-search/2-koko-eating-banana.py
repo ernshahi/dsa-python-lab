@@ -37,6 +37,34 @@ class Solution:
         return result
     
 
+from math import ceil
+
+class Solution:
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        def _can_eat(speed):
+            hours_taken = 0
+            for pile in piles:
+                hours_taken += ceil(pile/speed)
+                if hours_taken > h:
+                    return False
+            return True
+        # naive approach:
+        # max(piles) * n
+        # rate = 1
+        # while _helper(rate) > h:
+        #     rate += 1
+        # return rate
+        
+        # binary search approach:
+        left, right = 1, max(piles)
+        
+        while left <= right:
+            mid = (left + right) // 2
+            if _can_eat(mid):
+                right = mid - 1
+            else:
+                left = mid + 1
+        return left
 
 if __name__ == "__main__":
     piles = [3, 6, 7, 11]

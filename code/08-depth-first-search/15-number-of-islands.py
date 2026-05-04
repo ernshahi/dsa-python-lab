@@ -29,31 +29,24 @@ from collections import deque
 
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        if not grid:
-            return 0
-        result = 0
         rows, cols = len(grid), len(grid[0])
         directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-        visited = set()
-        def dfs(r, c):
-            if (r, c) in visited: 
-                return 
-            if r < 0 or r >= rows or c < 0 or c >= cols:
-                return
-            visited.add((r, c))
-            if grid[r][c] != "0":
-                grid[r][c] = "0"
-                for dr, dc in directions:
-                    dfs(r+dr, c+dc)
-                    
+
+        def _helper(r, c):
+            grid[r][c] = "0"
+            for x, y in directions:
+                nx, ny = r + x, c + y
+                if 0<=nx<rows and 0<=ny<cols and grid[nx][ny] == "1":
+                    _helper(nx,ny)
+        result = 0
         for r in range(rows):
             for c in range(cols):
                 if grid[r][c] == "1":
                     result += 1
-                    dfs(r, c)
+                    _helper(r, c)
         return result
     
-    def numIslands2(self, grid: List[List[str]]) -> int:
+    def numIslands(self, grid: List[List[str]]) -> int:
         if not grid:
             return 0
         result = 0
@@ -81,3 +74,4 @@ class Solution:
 if __name__ == "__main__":
     inputs = [["1"]]
     print(Solution().numIslands(inputs))
+    
