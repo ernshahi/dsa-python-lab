@@ -45,7 +45,13 @@ from typing import List
 
 class Solution:
     def shipWithinDays(self, weights: List[int], days: int) -> int:
+        """
+        Binary Search Approach
+        Time Complexity: O(n log n)
+        Space Complexity: O(1)
+        """
         left, right = max(weights), sum(weights)
+        # for left if use min(weights), it will be wrong because the capacity is too small to ship all the packages in the given days.
         def can_ship(capacity):
             curr_sum, curr_days = 0, 1
             for weight in weights:
