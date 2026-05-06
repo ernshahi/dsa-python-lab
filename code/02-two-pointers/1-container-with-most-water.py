@@ -34,8 +34,7 @@ class Solution:
         for i in range(len(height)):
             for j in range(i + 1, len(height)):
                 area = (j - i) * min(height[j], height[i])
-                if area > result:
-                    result = area
+                result = max(result, area)
         return result
 
     def maxArea(self, height: List[int]) -> int:
@@ -53,8 +52,7 @@ class Solution:
         while left < right:
             width = right - left
             area = width * min(height[left], height[right])
-            if result < area:
-                result = area
+            result = max(result, area)
             if height[left] < height[right]:
                 left += 1
             else:
