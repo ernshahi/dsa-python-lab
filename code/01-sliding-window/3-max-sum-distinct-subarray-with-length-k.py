@@ -13,21 +13,21 @@ from typing import List
 
 class Solution:
     def maximumSubarraySum(self, nums: List[int], k: int) -> int:
-        left, max_sum, current_sum = 0, 0, 0
+        left, max_sum, current_sum = 0, float('-inf'), 0
         count = {}
         for right in range(len(nums)):
             current_sum += nums[right]
             count[nums[right]] = count.get(nums[right], 0) + 1
 
-            if right - left + 1 > k:
+            if right - left + 1 == k:
+                if len(count) == k:
+                    max_sum = max(max_sum, current_sum)
                 current_sum -= nums[left]
                 count[nums[left]] -= 1
                 if count[nums[left]] == 0:
                     del count[nums[left]]
                 left += 1
-            if right - left + 1 == k and len(count) == k:
-                max_sum = max(max_sum, current_sum)
-        return max_sum
+        return max_sum if max_sum != float('-inf') else 0
 
 
 if __name__ == "__main__":

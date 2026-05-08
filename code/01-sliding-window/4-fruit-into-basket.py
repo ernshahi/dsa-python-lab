@@ -37,10 +37,15 @@ from collections import Counter, defaultdict
 class Solution:
     def totalFruit1(self, fruits: List[int]) -> int:
         fruitCounter = Counter(fruits)
-        import pdb; pdb.set_trace()
         return sum(sorted(fruitCounter.values())[-2:])
     
     def totalFruit2(self, fruits: List[int]) -> int:
+        """
+        Brute force:
+        Try every possible subarray and check if it contains at most 2 distinct fruits.
+        Time complexity: O(n^2)
+        Space complexity: O(1)
+        """
         maxCount = 0
         for i in range(len(fruits)):
             for j in range(i, len(fruits)):
@@ -49,6 +54,27 @@ class Solution:
                 else:
                     break
         return maxCount
+    
+    def totalFruit(self, fruits: List[int]) -> int:
+        """
+        Sliding window:
+        We use a dictionary to keep track of the count of each fruit type.
+        We slide the window across the fruits array and update the count of each fruit type.
+        If the number of distinct fruit types is more than 2, we shrink the window from the left.
+        Time complexity: O(n)
+        Space complexity: O(1)
+        """
+        state  = defaultdict(int)
+        left, result = 0, 0
+        for right in range(len(fruits)):
+            state[fruits[right]] += 1
+            while len(state) > 2:
+                state[fruits[left]] -= 1
+                if state[fruits[left]] == 0:
+                    del state[fruits[left]]
+                left += 1
+            result = max(result, right - left + 1)
+        return result
     
     def totalFruit3(self, fruits: List[int]) -> int:
         maxCount = 0
@@ -61,19 +87,6 @@ class Solution:
                 else:
                     break
         return maxCount
-    
-    def totalFruit(self, fruits: List[int]) -> int:
-        state  = defaultdict(int)
-        left, result = 0, 0
-        for right in range(len(fruits)):
-            state[fruits[right]] += 1
-            while len(state) > 2:
-                state[fruits[left]] -= 1
-                if state[fruits[left]] == 0:
-                    del state[fruits[left]]
-                left += 1
-            result = max(result, right - left + 1)
-        return result
 
 
 if __name__ == "__main__":

@@ -25,6 +25,7 @@ from collections import defaultdict
 class Solution:
     def longestSubstringWithoutRepeat(self, s: str):
         """
+        Brute force:
         Time complexity: O(n^2)
         Space complexity: O(n)
         """

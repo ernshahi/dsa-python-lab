@@ -30,6 +30,18 @@ class Solution:
         for i in range(lastZeroIndex, len(nums)):
             nums[i] = 0
         return nums
+    
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        curr_zero_index = 0
+        for i in range(len(nums)):
+            if nums[i] != 0:
+                nums[curr_zero_index], nums[i] = nums[i], nums[curr_zero_index]
+                curr_zero_index += 1
+        return nums
 
 
 if __name__ == "__main__":

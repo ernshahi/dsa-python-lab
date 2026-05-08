@@ -59,5 +59,3 @@ if __name__ == "__main__":
     sol = Solution()
     print(sol.characterReplacement("ABAB", 2)) # 4
     print(sol.characterReplacement("AABABBA", 1)) # 4
-
-
