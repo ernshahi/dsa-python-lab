@@ -38,36 +38,8 @@ class Solution:
         intervals.sort(key=lambda x: x[1])
         end = intervals[0][1]
         count = 1
-
         for i in range(1, len(intervals)):
             if intervals[i][0] >= end:
                 end = intervals[i][1]
                 count += 1
         return len(intervals) - count
-
-    def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
-        """
-        Time Complexity: O(n log n)
-        Space Complexity: O(1)
-
-        This is a greedy algorithm that sorts the intervals by their start time and then iterates through the intervals to find the minimum number of intervals to remove.
-        """
-        intervals = sorted(intervals, key=lambda x: x[0])
-        result = 0
-        pointer = intervals[0][1]
-        n = len(intervals)
-
-        for j in range(1, n):
-            if pointer > intervals[j][0]:
-                result += 1
-                pointer = min(pointer, intervals[j][1])
-            else:
-                pointer = max(pointer, intervals[j][1])
-        return result
-    
-    
-if __name__ == "__main__":
-    # print(Solution().eraseOverlapIntervals([[1,2],[2,3],[3,4],[1,3]])) # 
-    # print(Solution().eraseOverlapIntervals([[1,2],[1,2],[1,2]])) # 2
-    # print(Solution().eraseOverlapIntervals([[1,2],[2,3]])) # 0
-    print(Solution().eraseOverlapIntervals([[0,2],[1,3],[2,4],[3,5],[4,6]])) # 2

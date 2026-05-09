@@ -21,6 +21,35 @@ Output: "abcabccdcdcdef"
 
 class Solution:
     def decodeString(self, s: str) -> str:
+        """
+        This is a recursive solution that uses a stack to store the current word and number.
+        Time Complexity: O(n)
+        Space Complexity: O(n)
+        """
+        stack = []
+        curr_word, curr_num = "", 0
+        for char in s:
+            if char == "[":
+                stack.append(curr_word)
+                stack.append(curr_num)
+                curr_word = ""
+                curr_num = 0
+            elif char == "]":
+                prev_num = stack.pop()
+                prev_word = stack.pop()
+                curr_word = prev_word + prev_num * curr_word
+            elif char.isdigit():
+                curr_num = curr_num * 10 + int(char)
+            else:
+                curr_word += char
+        return curr_word
+    
+    def decodeString(self, s: str) -> str:
+        """
+        This is a iterative solution that uses a stack to store the current word and number.
+        Time Complexity: O(n)
+        Space Complexity: O(n)
+        """
         stack = []
         for char in s:
             if char == "]":

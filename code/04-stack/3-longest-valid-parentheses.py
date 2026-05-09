@@ -66,17 +66,17 @@ class Solution:
         - stack is [-1] to handle the case when the first character is a right parenthesis
         """
         stack = [-1]
-        mx = 0
-        for i, char in enumerate(s):
-            if char == "(":
+        max_length = 0
+        for i, val in enumerate(s):
+            if val == "(":
                 stack.append(i)
-                continue
-            stack.pop()
-            if stack:
-                mx = max(mx, i - stack[-1])
             else:
-                stack.append(i)
-        return mx
+                stack.pop()
+                if not stack:
+                    stack.append(i)
+                else:
+                    max_length = max(max_length, i-stack[-1])
+        return max_length
 
 
 if __name__ == "__main__":

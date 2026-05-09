@@ -5,6 +5,9 @@ Example
 Input: [2, 1, 3, 2, 4, 3]
 Output: [3, 3, 4, 4, -1, -1]
 """
+"""
+Next Greater Element:
+"""
 
 def nextGreaterElement(nums):
   n = len(nums)

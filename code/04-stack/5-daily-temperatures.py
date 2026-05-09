@@ -45,15 +45,14 @@ class Solution:
         - If it is not, pop the stack and update the result
         - stack is a stack of tuples (temp, index)
         """
-        result = [0] * len(temps)
-        stack = [] # (temp, index)
-
-        for i, temp in enumerate(temps):
-            while stack and stack[-1][0] < temp:
-                stackT, stackInx = stack.pop()
-                result[stackInx] = i - stackInx
-            stack.append([temp, i])
-        return result
+        res = [0] * len(temps)
+        stack = []
+        for i in range(len(temps)):
+            while stack and temps[stack[-1]] < temps[i]:
+                index = stack.pop()
+                res[index] = i - index
+            stack.append(i)
+        return res
 
     
 if __name__ == "__main__":

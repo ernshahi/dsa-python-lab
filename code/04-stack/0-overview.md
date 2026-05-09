@@ -9,3 +9,8 @@ The stack data structure is a collection of elements that follows the Last-In, F
 - peek: the top element of the stack
 - isEmpty: check if the stack is empty
 - size: the number of elements in the stack
+
+
+
+# Make sure to use While when you check if the stack is not empty and last val of stack is greater than current val.
+

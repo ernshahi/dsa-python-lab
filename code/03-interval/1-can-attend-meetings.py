@@ -24,7 +24,6 @@ class Solution:
         Space Complexity: O(1)
         """
         intervals.sort(key=lambda x: x[0])
-
         for i in range(1, len(intervals)):
             if intervals[i][0] < intervals[i-1][1]:
                 return False
@@ -36,6 +35,7 @@ class Solution:
         Time Complexity: O(n)
         Space Complexity: O(1)
         """
+        # This doesn't work all the time eg: intervals=[(1,5),(1,3)]
         prev_s = intervals[0][0]
         prev_e = intervals[0][1]
 

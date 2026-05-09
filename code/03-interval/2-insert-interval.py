@@ -22,8 +22,29 @@ Output: [[1,2],[3,10],[12,16]]
 
 Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
 """
+from typing import List
 
 class Solution:
+    def insertIntervals(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+        """
+        This is a greedy solution that iterates through the intervals and inserts the new interval at the correct position.
+        Time Complexity: O(n)
+        Space Complexity: O(n)
+        """
+        result = []
+        for i in range(len(intervals)):
+            if intervals[i][0] > newInterval[1]:
+                result.append(newInterval)
+                result.extend(intervals[i:])
+                return result
+            elif intervals[i][1] < newInterval[0]:
+                result.append(intervals[i])
+            else:
+                newInterval[0] = min(newInterval[0], intervals[i][0])
+                newInterval[1] = max(newInterval[1], intervals[i][1])
+        result.append(newInterval)
+        return result
+    
     def insertIntervals(self, intervals: list[list[int]], newInterval: list[int]):
         """
         This is a brute force solution that iterates through the intervals and inserts the new interval at the correct position.
@@ -47,7 +68,7 @@ class Solution:
             merged.append(intervals[j])
 
         return merged
-    
+        
 
 if __name__ == "__main__":
     intervals = [(1,2),(3,5),(6,7),(8,10),(12,16)]
@@ -57,3 +78,4 @@ if __name__ == "__main__":
     intervals = [(1,3),(6,9)]
     newInterval = (2,5)
     print(Solution().insertIntervals(intervals, newInterval)) # [(1,5),(6,9)]
+    

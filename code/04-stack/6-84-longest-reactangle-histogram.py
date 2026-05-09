@@ -56,3 +56,19 @@ if __name__ == "__main__":
     sol = Solution()
     print(sol.largestRectangleArea([2,1,5,6,2,3])) # 10
     print(sol.largestRectangleArea([2,4])) # 4
+    
+    
+class Solution:
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        max_area = 0
+        stack = []
+        for idx, val in enumerate(heights):
+            start = idx
+            while stack and val <= stack[-1][-1]:
+                i, h = stack.pop()
+                max_area = max(max_area, (idx-i) * h)
+                start = i
+            stack.append((start, val))
+        for idx, val in stack:
+            max_area = max(max_area, (len(heights) - idx) * val)
+        return max_area
