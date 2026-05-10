@@ -20,6 +20,7 @@ Output: -1
 """
 from typing import List
 
+
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         left, right = 0, len(nums) - 1 
@@ -30,13 +31,13 @@ class Solution:
                 return mid
 
             # left half sorted
-            if nums[left] <= nums[mid]:
+            if nums[left] <= nums[mid]: # <= because left can have only one element: [3,1]
                 if  nums[left] <= target < nums[mid]:
                     right = mid - 1
                 else:
                     left = mid + 1
             # right half is sorted
-            else:
+            else: # nums[mid] <= nums[right]
                 if  nums[mid] < target <= nums[right]:
                     left = mid + 1
                 else:

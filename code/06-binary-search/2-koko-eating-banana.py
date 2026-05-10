@@ -16,31 +16,18 @@ Output: 30
 """
 
 from typing import List
-import math
-
-
-class Solution:
-    def minHarvestRate(self, apples: List[int], h: int):
-        left, right = 1, max(apples)
-        result = right
-
-        while left <= right:
-            mid = (left + right) // 2
-            total = 0
-            for apple in apples:
-                total += math.ceil(apple/mid)
-            if total <= h:
-                result = mid
-                right = mid - 1 # # try smaller k as user prefer slower as much as possible
-            else: 
-                left = mid + 1 # # need to eat faster as consumed hrs is more than given limit
-        return result
-    
-
 from math import ceil
 
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        """
+        Optimized Approach: Binary Search
+        - Time Complexity: O(n log m), where n is the number of piles and m is the maximum number of bananas in a pile.
+        - Space Complexity: O(1), no extra space is used.
+        
+        left: minimum possible eating speed (can't eat less than 1 banana/hour)
+        right: maximum needed speed (faster than largest pile gives no benefit)
+        """
         def _can_eat(speed):
             hours_taken = 0
             for pile in piles:
@@ -66,11 +53,19 @@ class Solution:
                 left = mid + 1
         return left
 
-if __name__ == "__main__":
-    piles = [3, 6, 7, 11]
-    h = 8
-    print(Solution().minHarvestRate(piles, h))  # Output: 4
-    
-    piles = [30, 11, 23, 4, 20]
-    h = 5
-    print(Solution().minHarvestRate(piles, h))  # Output: 30
+class Solution:
+    def minHarvestRate(self, apples: List[int], h: int):
+        left, right = 1, max(apples)
+        result = right
+
+        while left <= right:
+            mid = (left + right) // 2
+            total = 0
+            for apple in apples:
+                total += ceil(apple/mid)
+            if total <= h:
+                result = mid
+                right = mid - 1 # # try smaller k as user prefer slower as much as possible
+            else: 
+                left = mid + 1 # # need to eat faster as consumed hrs is more than given limit
+        return result

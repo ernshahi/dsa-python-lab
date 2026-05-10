@@ -25,16 +25,15 @@ from typing import List
 import heapq
 
 class Solution:
-    def kClosest(self, nums: List[int], k: int, target: int) -> List[int]:
-        arr = [(-abs(target-num), num) for num in nums]
-        heap = arr[:k]
+    def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
+        heap = [(-abs(x-num), num) for num in arr[:k]]
         heapq.heapify(heap)
         for curr in arr[k:]:
-            if curr[0] > heap[0][0]:
+            if -abs(x - curr) > heap[0][0]:
                 heapq.heappop(heap)
-                heapq.heappush(heap, curr)
-        return [num[1] for num in heap]
-    
+                heapq.heappush(heap, (-abs(x - curr), curr))
+        return sorted([num for _, num in heap])
+
 if __name__ == "__main__":
     print(Solution().kClosest([-1, 0, 1, 4, 6], 3, 1)) # -1, 0, 1
     print(Solution().kClosest([5, 6, 7, 8, 9], 2, 10)) # 8, 9

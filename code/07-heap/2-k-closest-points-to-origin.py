@@ -24,6 +24,38 @@ from typing import List
 
 class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+        """
+        Most optimal solution using heap.
+        Time Complexity: O(n log k)
+        Space Complexity: O(k)
+        """
+        heap = [(-(x*x + y*y), [x, y]) for x, y in points[:k]]
+        heapq.heapify(heap)
+        for x, y in points[k:]:
+            dist = -(x * x + y * y)
+            if dist > heap[0][0]:
+                heapq.heappop(heap)
+                heapq.heappush(heap, (dist, [x, y]))
+        return [point for dist, point in heap]
+
+    def kClosest2(self, points: List[List[int]], k: int) -> List[List[int]]:
+        """
+        Time Complexity: O(n log n)
+        Space Complexity: O(n)
+        """
+        heap = [] # distance, (x, y)
+        for x, y in points:
+            dist = -(x * x + y * y)
+            heapq.heappush(heap, (dist, (x, y)))
+            if len(heap) > k:
+                heapq.heappop(heap)
+        return [point for dist, point in heap]
+
+    def kClosest3(self, points: List[List[int]], k: int) -> List[List[int]]:
+        """
+        Time Complexity: O(n log n)
+        Space Complexity: O(n)
+        """
         arr = [(-point[0]*point[0]-point[1]*point[1], point) for point in points]
         harr = arr[:k]
         heapq.heapify(harr)

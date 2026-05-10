@@ -17,15 +17,20 @@ from typing import List
 
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
-        # nums.sort();return nums[-1]
-        # return sorted(nums)[-k]
-        heap = nums[:k]
-        heapq.heapify(heap)
-        for num in nums[k:]:
-            if num > heap[0]:
+        heap = []
+        for num in nums:
+            heapq.heappush(heap, num)
+            if len(heap) > k:
                 heapq.heappop(heap)
-                heapq.heappush(heap, num)
         return heap[0]
+        # return sorted(nums)[-k]
+        
+        # Using max heap
+        nums = [-num for num in nums]
+        heapq.heapify(nums)
+        for _ in range(k-1):
+            heapq.heappop(nums)
+        return -(nums[0])
 
 
 if __name__ == "__main__":
