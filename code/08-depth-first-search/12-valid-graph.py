@@ -19,7 +19,9 @@ class Solution:
         for x, y in edges:
             ad_list[x].append(y)
             ad_list[y].append(x)
+            
         visited = set()
+        
         def dfs(node, prev):
             if node in visited:
                 return False

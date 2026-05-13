@@ -35,12 +35,23 @@ class Solution:
     def goodNodes(self, root: TreeNode) -> int:
         def dfs(node, max_val):
             if not node: return 0
-            res = 1 if node.val >= max_val else 0
-            
+            curr = 1 if node.val >= max_val else 0
             max_val = max(max_val, node.val)
-            res += dfs(node.left, max_val)
-            res += dfs(node.right, max_val)
-            return res
+            left = dfs(node.left, max_val)
+            right = dfs(node.right, max_val)
+            return curr + left + right
         return dfs(root, root.val)
     
-
+    def goodNodes(self, root: TreeNode) -> int:
+        result = 0
+        def dfs(node, max_val):
+            nonlocal result
+            if node is None:
+                return 0
+            if node.val >= max_val:
+                result += 1
+            max_val = max(max_val, node.val)
+            dfs(node.left, max_val)
+            dfs(node.right, max_val)
+        dfs(root, float('-inf'))
+        return result

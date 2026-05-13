@@ -68,8 +68,6 @@ class Solution:
                     dfs(r, c)
         return result
 
-                            
-# Bonus: replace grid itself to save space
 
 if __name__ == "__main__":
     inputs = [["1"]]

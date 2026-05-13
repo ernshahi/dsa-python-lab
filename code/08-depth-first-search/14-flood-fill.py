@@ -27,18 +27,18 @@ from typing import List
 
 class Solution:
     def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
-        visited = set()
-        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-        og = image[sr][sc]
+        if not image: return image
+        if image[sr][sc] == color:
+            return image
+        directions = [(-1, 0), (1, 0), (0, 1),(0, -1)]
+        rows, cols = len(image), len(image[0])
+        start_color = image[sr][sc]
+
         def dfs(r, c):
-            if (r, c) in visited: 
-                return
-            if r < 0 or c < 0 or r >= len(image) or c >= len(image[0]): 
-                return
-            visited.add((r, c))
-            if image[r][c] == og: 
-                image[r][c] = color
-                for rd, cd in directions:
-                    dfs(r+rd, c+cd)
+            image[r][c] = color
+            for dx, dy in directions:
+                nx, ny = dx + r, dy + c
+                if 0<=nx<rows and 0<=ny<cols and image[nx][ny] == start_color:
+                    dfs(nx, ny)
         dfs(sr, sc)
         return image

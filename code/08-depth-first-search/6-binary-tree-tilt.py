@@ -28,23 +28,37 @@ Example 3:
 Input: root = [21,7,14,1,1,2,2,3,3]
 Output: 9
 """
-
 from typing import Optional
+
 # Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+        
 class Solution:
     def findTilt(self, root: Optional[TreeNode]) -> int:
-        self.result = 0
+        result = 0
         def dfs(node):
+            nonlocal result
             if not node: return 0
             left_sum = dfs(node.left)
             right_sum = dfs(node.right)
-            self.result += abs(left_sum - right_sum)
+            result += abs(left_sum - right_sum)
             return node.val + left_sum + right_sum
         dfs(root)
-        return self.result
-            
+        return result
+    
+    def findTilt(self, root: Optional[TreeNode]) -> int:
+        def dfs(node):
+            if node is None:
+                return 0, 0
+            if not node.left and not node.right:
+                return node.val, 0
+            left_total, left_tilt = dfs(node.left)
+            right_total, right_tilt = dfs(node.right)
+            total = left_total + right_total + node.val
+            tilt = abs(left_total - right_total) + left_tilt + right_tilt
+            return total, tilt
+        return dfs(root)[1]
