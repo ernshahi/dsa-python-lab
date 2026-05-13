@@ -15,6 +15,28 @@ Explanation: The knight can move from (0, 0) to (4, 4) in four moves ( [0, 0] ->
 """
 
 from collections import deque
+
+from collections import deque
+class Solution:
+    def minimumKnightMoves(self, x: int, y: int) -> int:
+        directions = [
+            (2, 1), (1, 2), 
+            (-2, -1), (-1, -2), 
+            (2, -1), (1, -2),
+            (-2, 1), (-1, 2)
+        ]
+        queue = deque([(0, 0, 0)])
+        visited = set()
+        while queue:
+            a, b, moves = queue.popleft()
+            if a == x and b == y:
+                return moves
+            visited.add((a, b))
+            for dx, dy in directions:
+                nx, ny = dx+a, dy+b
+                if (nx, ny) not in visited:
+                    queue.append((nx, ny, moves + 1))
+                    
 class Solution:
     def minimumKnightMoves(self, x: int, y: int) -> int:
         """

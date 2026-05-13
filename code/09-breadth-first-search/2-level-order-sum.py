@@ -9,6 +9,7 @@ Input:
 Output:
 [1, 7, 9, 8]
 """
+from collections import deque
 
 class TreeNode:
     def __init__(self, val: int, left: 'TreeNode' = None, right: 'TreeNode' = None):

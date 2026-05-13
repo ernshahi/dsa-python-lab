@@ -29,6 +29,8 @@ sum(routes[i].length) <= 105
 """
 
 from collections import defaultdict, deque
+from typing import List
+
 class Solution:
     def numBusesToDestination(self, routes: List[List[int]], source: int, target: int) -> int:
         """
@@ -38,11 +40,18 @@ class Solution:
         Time Complexity: O(S + R) 
         Space Complexity: O(S + R)
         Each route and stop is visited at most once.
+        
         """
+        if source == target:
+            return 0
+
         mapping = defaultdict(set)
         for i, route in enumerate(routes):
             for stop in route:
                 mapping[stop].add(i)
+        
+        if source not in mapping or target not in mapping:
+            return -1
         
         queue = deque()
         queue.append(source)
@@ -65,3 +74,4 @@ class Solution:
                             queue.append(stop)
             result += 1
         return -1
+    
