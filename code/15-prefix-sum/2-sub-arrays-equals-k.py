@@ -30,3 +30,4 @@ class Solution:
             result += prefix_sum.get(curr_diff, 0)
             prefix_sum[curr_sum] = prefix_sum.get(curr_sum, 0) + 1
         return result
+

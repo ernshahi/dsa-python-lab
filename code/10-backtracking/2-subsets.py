@@ -39,6 +39,23 @@ class Solution:
         backtrack(0)
         return result
 
+
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        result = []
+        curr = []
+        def backtrack(i):
+            if i >= len(nums):
+                result.append(curr.copy())
+                return
+            curr.append(nums[i])
+            backtrack(i+1)
+
+            curr.pop()
+            backtrack(i+1)
+        backtrack(0)
+        return result
+
 if __name__ == "__main__":
     solution = Solution()
     print(solution.subsets([1,2,3]))

@@ -91,7 +91,7 @@ class Trie:
                 return len(current_node.children) == 0
             
             char = word[index]
-            node = current_node.children.get(char)
+            node = current_node.children.get(char) # word may not exist in the tree
             if node is None:
                 return False    
             if _delete(node, index+1):
