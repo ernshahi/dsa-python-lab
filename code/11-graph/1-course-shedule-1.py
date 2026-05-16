@@ -47,4 +47,3 @@ class Solution:
                     queue.append(course)
         return count == numCourses
 
-

@@ -32,10 +32,8 @@ class Solution:
         directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
         rows, cols = len(heights), len(heights[0])
         effort = [[float('inf')] * cols for _ in range(rows)]
-        effort[0][0] = 0
         heap = [(0, 0, 0)]
         visited = set()
-
         while heap:
             d, r, c = heapq.heappop(heap)
             if (r, c) in visited:
@@ -54,6 +52,3 @@ class Solution:
                         effort[nx][ny] = max_effort
                         heapq.heappush(heap, (max_effort,nx, ny))
         return 0
-
-
-        

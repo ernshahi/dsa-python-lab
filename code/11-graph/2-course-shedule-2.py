@@ -30,10 +30,6 @@ from typing import List
 
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
-        from collections import deque
-
-class Solution:
-    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
         graph = defaultdict(list)
         in_degrees = [0] * numCourses
         for dest, src in prerequisites:
