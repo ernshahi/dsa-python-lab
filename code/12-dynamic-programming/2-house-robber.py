@@ -26,6 +26,51 @@ Constraints:
 0 <= nums[i] <= 400
 
 """
+
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        # if len(nums) == 0:
+        #     return 0
+        # if len(nums) == 1:
+        #     return nums[0]
+        # dp = [0] * (len(nums) + 1)
+        # dp[1] = nums[0]
+        # for i in range(2, len(nums) + 1):
+        #     dp[i] = max(dp[i-2] + nums[i-1], dp[i-1])
+        # return max(dp[len(nums)], dp[len(nums)-1])
+
+        # prev, curr = nums[0], max(nums[0], nums[1])
+        # for i in range(2, len(nums)):
+        #     temp = curr
+        #     curr = max(prev + nums[i], temp)
+        #     prev = temp
+        # return max(prev, curr)
+
+        # def _helper(n):
+        #     if n == 0:
+        #         return 0
+        #     if n == 1:
+        #         return nums[0]
+        #     skip = _helper(n-1)
+        #     take = _helper(n-2) + nums[n-1]
+        #     return max(skip, take)
+        # return _helper(len(nums))
+
+        memo = {}
+        def _helper(n):
+            if n == 0:
+                return 0
+            if n == 1:
+                return nums[0]
+            if n in memo:
+                return memo[n]
+            skip = _helper(n-1)
+            take = _helper(n-2) + nums[n-1]
+            memo[n] = max(skip, take)
+            return memo[n]
+        return _helper(len(nums))
+
+
 class Solution:
     def rob(self, nums: List[int]) -> int:
         if len(nums) == 0:
