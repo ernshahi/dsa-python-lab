@@ -33,5 +33,6 @@ class Solution:
             for i in range(left, right + 1):
                 farthest = max(farthest, i + nums[i])
             result += 1
+            left = right + 1
             right = farthest
         return result

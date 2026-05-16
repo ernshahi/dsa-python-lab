@@ -12,7 +12,7 @@ class Solution:
         """
         n = len(gas)
         for i in range(n):
-            curr_gas, curr_idx = 0, -1
+            curr_gas = 0
             for j in range(i, n + i):
                 idx = j % n
                 curr_gas += gas[idx]
