@@ -17,3 +17,59 @@ Constraints:
 1 <= nums[i] <= 104
 The frequency of each element is in the range [1, 4].
 """
+from typing import List
+
+class Solution:
+    def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
+        total = sum(nums)
+
+        if total % k:
+            return False
+
+        target = total // k
+        nums.sort(reverse=True)
+
+        used = [False] * len(nums)
+
+        def backtrack(start, k, curr_sum):
+            if k == 0:
+                return True
+
+            if curr_sum == target:
+                return backtrack(0, k - 1, 0)
+
+            prev = -1
+
+            for j in range(start, len(nums)):
+                if used[j]:
+                    continue
+
+                if nums[j] == prev:
+                    continue
+
+                if curr_sum + nums[j] > target:
+                    continue
+
+                used[j] = True
+
+                if backtrack(j + 1, k, curr_sum + nums[j]):
+                    return True
+
+                used[j] = False
+
+                prev = nums[j]
+
+                # Important pruning:
+                # If this number was tried as first item in empty bucket and failed,
+                # no need to try other numbers as first item.
+                if curr_sum == 0:
+                    return False
+
+                # If this number completed the bucket but still failed later,
+                # no need to try other options for this bucket.
+                if curr_sum + nums[j] == target:
+                    return False
+
+            return False
+
+        return backtrack(0, k, 0)

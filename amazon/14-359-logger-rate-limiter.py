@@ -24,26 +24,36 @@ Multiple unique messages can be tracked simultaneously
 Each message has an independent 10-second window
 
 """
-
 class Logger:
+    """
+    Time Complexity: O(1)
+    Space Complexity: O(m)
+    where m is the number of unique messages tracked by the logger
+    
+    Stored all the messages and their last seen timestamp in a hashmap, so memory usage can grow linearly with the number of unique messages.
+    """
     def __init__(self):
-        self.message_timestamps = {}
-        
-    # shouldPrintMessage(1, "foo") → true
-    def shouldPrintMessage(self, timestamp, log):
-        if log in self.message_timestamps:
-            last_time = self.message_timestamps[log]
-            if timestamp - last_time < 10:
-                return False
-        self.message_timestamps[log] = timestamp
-        return True
+        self.last_seen = {}
+
+    def shouldPrintMessage(self, timestamp: int, message: str) -> bool:
+        if message not in self.last_seen or timestamp - self.last_seen[message] >= 10:
+            self.last_seen[message] = timestamp
+            return True
+        return False
     
 
 from collections import deque
 import time
 
 class Logger:
-
+    """
+    
+    Time Complexity: O(1)
+    Space Complexity: O(m)
+    where m is the number of unique messages tracked by the logger
+    
+    Stores messaged for last 10 seconds in a queue and a set, so usage is optimized.
+    """
     def __init__(self):
         self.queue = deque()  # (timestamp, message)
         self.messages = set()

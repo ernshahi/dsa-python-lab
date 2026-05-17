@@ -32,16 +32,18 @@ class Interval(object):
 
 class Solution:
     def minMeetingRooms(self, intervals: List[Interval]) -> int:
-        starts = sorted([ interval.start for interval in intervals ])
-        ends = sorted([ interval.end for interval in intervals ])
-        count, max_count = 0, 0
+        starts = sorted([ interval.start for interval in intervals ]) # [0,5,15]
+        ends = sorted([ interval.end for interval in intervals ]) # [10,20,30]
+        rooms, max_rooms = 0, 0
         curr_start, curr_end = 0, 0
-        while curr_start < len(starts):
-            if ends[curr_end] > starts[curr_start]:
-                count += 1
+        while curr_start < len(intervals):
+            if starts[curr_start] < ends[curr_end]: 
+                # if start time of current meeting is before end time of current room, we need a new room
+                rooms += 1
                 curr_start += 1
-                max_count = max(max_count, count)
+                max_rooms = max(max_rooms, rooms)
             else:
-                count -= 1
+                # if start time of current meeting is after end time of current room, we can use the current room
+                rooms -= 1
                 curr_end += 1
-        return max_count
+        return max_rooms

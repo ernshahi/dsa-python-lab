@@ -34,13 +34,10 @@ class Solution:
         Time Complexity: O(n * k log k)
         Space Complexity: O(n * k)
         """
-        mapping = {}
+        mapping = defaultdict(list)
         for word in strs:
             key = tuple(sorted(word))
-            if key in mapping:
-                mapping[key].append(word)
-            else:
-                mapping[key] = [word]
+            mapping[key].append(word)
         return list(mapping.values())
     
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
@@ -49,7 +46,7 @@ class Solution:
         Time Complexity: O(n * k * 26) -> O(n * k)
         Space Complexity: O(n * k)
         """
-        mapping = defaultdict()
+        mapping = defaultdict(list)
         for word in strs:
             count = [0] * 26 # a ... z
             for char in word:

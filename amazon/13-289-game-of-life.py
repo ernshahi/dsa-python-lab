@@ -63,16 +63,16 @@ class Solution:
                     alive_count += 1
             return alive_count
         
-        def count_nei1(r, c):
-            for i in range(r-1, r+2):
-                for j in range(c-1, c+2):
-                    if (i==r and j==c):
-                        continue
-                    if i<0 or j<0 or i>=rows or j>=cols:
-                        continue
-                    if board[i][j] in [1, 3]:
-                        alive_count += 1
-            return alive_count
+        # def count_nei1(r, c):
+        #     for i in range(r-1, r+2):
+        #         for j in range(c-1, c+2):
+        #             if (i==r and j==c):
+        #                 continue
+        #             if i<0 or j<0 or i>=rows or j>=cols:
+        #                 continue
+        #             if board[i][j] in [1, 3]:
+        #                 alive_count += 1
+        #     return alive_count
 
         for r in range(rows):
             for c in range(cols):
